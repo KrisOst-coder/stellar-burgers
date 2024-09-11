@@ -9,9 +9,8 @@ import {
 } from '../../services/slices/feedsSlice';
 
 export const Feed: FC = () => {
-  /** TODO: взять переменную из стора */
-  const orders: TOrder[] = useSelector(ordersSelector);
   const dispatch = useDispatch();
+  const orders: TOrder[] = useSelector(ordersSelector);
 
   useEffect(() => {
     dispatch(fetchAllFeeds());
@@ -25,5 +24,5 @@ export const Feed: FC = () => {
     dispatch(fetchAllFeeds());
   };
 
-  <FeedUI orders={orders} handleGetFeeds={handleGetFeeds} />;
+  return <FeedUI orders={orders} handleGetFeeds={handleGetFeeds} />;
 };

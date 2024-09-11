@@ -53,7 +53,7 @@ const App = () => {
         <Route path='/profile/orders/:number' element={<ProtectedRoute><OrderInfo /></ProtectedRoute>}/>
         <Route path='*' element={<NotFound404 />} />
       </Routes>
-      <Routes>
+      {background && (<Routes>
         <Route
           path='/feed/:number'
           element={
@@ -81,6 +81,7 @@ const App = () => {
           }
         />
       </Routes>
+        )}
     </div>
   );
 };
