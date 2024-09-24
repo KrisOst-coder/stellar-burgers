@@ -1,4 +1,4 @@
-import { getFeedsApi } from '@api';
+import { getFeedsApi } from '../../utils/burger-api';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { TOrder } from '@utils-types';
 
@@ -12,7 +12,7 @@ export interface TFeedsState {
   error: string | null | undefined;
 }
 
-const initialState: TFeedsState = {
+export const initialState: TFeedsState = {
   orders: [],
   total: 0,
   totalToday: 0,
@@ -42,7 +42,7 @@ export const feedsSlice = createSlice({
         state.total = 0;
         state.totalToday = 0;
         state.loading = false;
-        state.error = action.error.message;
+        state.error = undefined;
       })
       .addCase(fetchAllFeeds.pending, (state) => {
         state.loading = true;
