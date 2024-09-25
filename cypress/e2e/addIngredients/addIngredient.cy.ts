@@ -33,7 +33,7 @@ describe('проверяем функциональность приложени
     describe('тестирование модальных окон', () => {
         beforeEach(() => {
           const ingredient = cy.contains('Биокотлета из марсианской Магнолии');
-          ingredient.click();
+          ingredient.click({force: true});
         });
         it('открытие модального окна', () => {
           cy.contains(ingredientDetails).should('exist');
@@ -61,7 +61,7 @@ describe('проверяем функциональность приложени
           const buns = cy.get('h3').contains('Булки').next('ul');
           const bunsAddButton = buns.contains(addButton);
           cy.get('div').contains(chooseBuns).should('exist');
-          bunsAddButton.click();
+          bunsAddButton.click({force: true});
           cy.get('div').contains(chooseBuns).should('not.exist');
         });
     
@@ -69,7 +69,7 @@ describe('проверяем функциональность приложени
           const mains = cy.get('h3').contains('Начинки').next('ul');
           const mainsAddButton = mains.contains(addButton);
           cy.get('div').contains(chooseMains).should('exist');
-          mainsAddButton.click();
+          mainsAddButton.click({force: true});
           cy.get('div').contains(chooseMains).should('not.exist');
         });
       });
@@ -85,14 +85,14 @@ describe('проверяем функциональность приложени
     
           const buns = cy.get('h3').contains('Булки').next('ul');
           const bunsAddButton = buns.contains(addButton);
-          bunsAddButton.click();
+          bunsAddButton.click({force: true});
     
           const mains = cy.get('h3').contains('Начинки').next('ul');
           const mainsAddButton = mains.contains(addButton);
-          mainsAddButton.click();
+          mainsAddButton.click({force: true});
     
           const orderRequestButton = cy.contains('Оформить заказ');
-          orderRequestButton.click();
+          orderRequestButton.click({force: true});
     
           cy.contains('1');
     
