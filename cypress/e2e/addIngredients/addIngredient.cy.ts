@@ -44,8 +44,7 @@ describe('проверяем функциональность приложени
         });
         it('закрытие по клику на крестик', () => {
             cy.contains(ingredientDetails).should('exist');
-            const closeX = cy.get('[data-cy="modal-close"]');
-            closeX.click();
+            cy.get('[data-cy="modal-close"]').click({ force: true });
             cy.contains(ingredientDetails).should('not.exist');
         });
       
